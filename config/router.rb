@@ -24,8 +24,8 @@ class Router
       @request.params.merge!(route_info)
     end
 
-    def not_found(msg = "Not Found")
-      [404, { "Content-Type" => "text/plain" }, [msg]]
+    def not_found(msg = "Routes Not Found")
+      [404, { "Content-Type" => "application/json" }, [{success: false, message: msg}.to_json]]
     end
 
     # { resource: "users", action: :index, id: nil }
